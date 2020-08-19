@@ -37,8 +37,8 @@ const ErrorHandler = {
   },
   handle(handlerInput) {
     return handlerInput.responseBuilder
-      .speak("My ")
-      .reprompt()
+      .speak("My bad, didn't catch that. Can you repeat it?")
+      .reprompt("My bad, didn't catch that. Can you repeat it?")
       .withShouldEndSession(false)
       .getResponse();
   },
