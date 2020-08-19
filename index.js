@@ -1,13 +1,15 @@
 const Alexa = require("ask-sdk-core");
 const axios = require("axios");
-require('dotenv').config()
+require("dotenv").config();
 const { default: axios } = require("axios");
 function getDirector(title) {
   const apikey = process.env.OMDB_API_KEY;
 
-  RETURN axios.get(`http://ww.omdbapi.com/?apikey=${apikey}&t=${title}`).then((response)=>{
-      return response.data.Director
-  })
+  return axios
+    .get(`http://ww.omdbapi.com/?apikey=${apikey}&t=${title}`)
+    .then((response) => {
+      return response.data.Director;
+    });
 }
 
 const DirectorIntentHandler = {
@@ -48,4 +50,3 @@ exports.handler = builder
   .addRequestHandlers(DirectorIntentHandler)
   .addErrorHandlers(ErrorHandler)
   .lambda();
-  
